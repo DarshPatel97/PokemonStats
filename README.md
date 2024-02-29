@@ -1,8 +1,3 @@
-
-I have performed Statistical Analysis of the characters from a famous cartoon Pokemon which also goes by the game name Pokemon Go. 
-The Statistical Data Analysis performed on this data answers various questions and provides great insights that can used to determine
-their overall strength.
-
 The following Image indicates the types of Pokemon there are with their respective frequencies.
 ![image](https://github.com/DarshPatel97/PokemonStats/assets/25706076/535d66f3-e091-447e-a7c9-91d152daf90a)
 
