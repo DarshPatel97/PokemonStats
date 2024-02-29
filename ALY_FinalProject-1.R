@@ -77,8 +77,6 @@ print(top_10_abilities)
 cleaned_ability_names <- gsub("[^[:alnum:][:space:]]", "", names(top_10_abilities))
 
 print(cleaned_ability_names)
-count()
-
 
 barplot(top_10_abilities, 
         main = "Top 10 Abilities Used by Pokémon", 
@@ -87,7 +85,8 @@ barplot(top_10_abilities,
         ylim = c(0,30),
         col = "skyblue",
         las = 2,
-        names.arg = cleaned_ability_names)
+        names.arg = cleaned_ability_names,
+        theme(plot.margin = margin(0, 0, 0.5, 0), "cm"))
 
 #10 which pokemon type are the users of these abilities
 
@@ -111,11 +110,12 @@ for (ability in top_10_abilities) {
 print(result_table)
 
 
-#Attack of legendary pokemons
-ggplot(pokemon, aes(x=is_legendary, y=attack)) +
+#Attack of different pokemons types
+ggplot(pokemon, aes(x=reorder(type1, -attack), y=attack)) +
   geom_boxplot(fill="green") +
-  xlab("Legendary Pokemon")+ ylab("Attack")+
-  labs(title = 'Attack of legendary pokemons')
+  xlab("Pokemon Types")+ ylab("Attack Damage")+
+  labs(title = 'Attack of legendary pokemons') +
+  theme(plot.title = element_text(hjust = 0.5))
 
 #Height vs Weight of pokemons
 x<-pokemon$height_m
@@ -150,8 +150,9 @@ plot(x, y,
 
 
 #Speed of pokemons
-ggplot(pokemon, aes(x=type1, y=speed)) +
+ggplot(pokemon, aes(x= reorder(type1, -speed), y=speed)) +
   geom_boxplot(fill="red") +
   xlab("Pokemon Type")+ ylab("Speed")+
-  labs(title = 'Fastest pokemon types')
+  labs(title = 'Fastest pokemon types', hjust = 0.5) +
+  theme(plot.title = element_text(hjust = 0.5))
 
